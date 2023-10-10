@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7idx8prtr8g4"]
+
+[ext_resource type="Material" uid="uid://dmn1aoeiiosah" path="res://src/level/background.tres" id="4_llkgo"]
+[ext_resource type="Texture2D" uid="uid://cfwfy3ma2vdgq" path="res://assets/images/background_black.png" id="5_14l7r"]
+
+[node name="Background" type="Node2D"]
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+z_index = -10
+material = ExtResource("4_llkgo")
+texture = ExtResource("5_14l7r")
+centered = false

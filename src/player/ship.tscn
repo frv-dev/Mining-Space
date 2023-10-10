@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://o7srfo2w2651"]
+
+[ext_resource type="Texture2D" uid="uid://ckc561norphjt" path="res://assets/images/ship.png" id="1_q20qx"]
+[ext_resource type="Script" path="res://src/player/ship.gd" id="1_y7mgh"]
+[ext_resource type="Texture2D" uid="uid://bdbfp1kkidoxs" path="res://assets/images/ship_fire.png" id="2_805lx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcs2v"]
+atlas = ExtResource("2_805lx")
+region = Rect2(0, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h015l"]
+atlas = ExtResource("2_805lx")
+region = Rect2(8, 0, 8, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxg33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcs2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h015l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_y7mgh")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_q20qx")
+
+[node name="ShipFireSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 20.5)
+sprite_frames = SubResource("SpriteFrames_lxg33")
+frame_progress = 0.951069
+
+[node name="MarkerRightBlaster" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="MarkerLeftBlaster" type="Marker2D" parent="."]
+position = Vector2(-8, 0)
