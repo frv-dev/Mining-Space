@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg1qdf37jrtnk"]
+[gd_scene load_steps=4 format=3 uid="uid://bg1qdf37jrtnk"]
 
 [ext_resource type="PackedScene" uid="uid://o7srfo2w2651" path="res://src/player/ship.tscn" id="1_wvf6j"]
 [ext_resource type="PackedScene" uid="uid://c7idx8prtr8g4" path="res://src/level/background.tscn" id="2_e4jw1"]
+[ext_resource type="PackedScene" uid="uid://bha1k7gmkb4m8" path="res://src/asteroids/asteroid_lv3.tscn" id="3_6egli"]
 
 [node name="MainLevel" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [320.0, 25.0]
@@ -11,3 +12,6 @@ metadata/_edit_vertical_guides_ = []
 position = Vector2(97, 265)
 
 [node name="Background" parent="." instance=ExtResource("2_e4jw1")]
+
+[node name="AsteroidLV3" parent="." instance=ExtResource("3_6egli")]
+position = Vector2(96, 88)

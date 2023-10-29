@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://brkn7crvi80qq"]
+
+[ext_resource type="Script" path="res://src/asteroids/asteroid_lv1_v2.gd" id="1_4sq38"]
+[ext_resource type="Texture2D" uid="uid://d4k6hd1s70axy" path="res://assets/images/asteroid_4.png" id="1_7lesw"]
+[ext_resource type="Script" path="res://src/asteroids/asteroid_hit_box.gd" id="3_gfjb8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1s463"]
+radius = 6.0
+
+[node name="AsteroidLv1_V2" type="Node2D"]
+script = ExtResource("1_4sq38")
+health_points = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7lesw")
+
+[node name="AsteroidHitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("3_gfjb8")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="AsteroidHitBox"]
+shape = SubResource("CircleShape2D_1s463")

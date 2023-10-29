@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7paxur4lvcqd"]
+[gd_scene load_steps=8 format=3 uid="uid://b7paxur4lvcqd"]
 
 [ext_resource type="Script" path="res://src/player/laser.gd" id="1_yfb1p"]
 [ext_resource type="Texture2D" uid="uid://dysewo13x5fwi" path="res://assets/images/laser.png" id="2_2td1s"]
+[ext_resource type="Script" path="res://src/player/laser_hit_box.gd" id="3_vg12l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5xs4"]
 atlas = ExtResource("2_2td1s")
@@ -25,6 +26,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y33m4"]
+radius = 2.0
+height = 18.0
+
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_yfb1p")
 
@@ -36,4 +41,13 @@ frame_progress = 0.0391372
 position = Vector2(2.98023e-08, 4.17233e-07)
 scale = Vector2(0.2, 0.8)
 
+[node name="LaserHitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_vg12l")
+
+[node name="LaserCollisionShape" type="CollisionShape2D" parent="LaserHitBox"]
+shape = SubResource("CapsuleShape2D_y33m4")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="LaserHitBox" to="LaserHitBox" method="_on_area_entered"]

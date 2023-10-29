@@ -1,3 +1,4 @@
+class_name Ship
 extends Node2D
 
 @onready var _ship_fire_sprite := $ShipFireSprite
@@ -11,6 +12,10 @@ var _shot_automatically_speed := 3.0
 const _LAZER := preload("res://src/player/laser.tscn")
 @onready var _marker_right_blaster := $MarkerRightBlaster
 @onready var _marker_left_blaster := $MarkerLeftBlaster
+
+
+func get_custom_class() -> String:
+	return 'Ship'
 
 
 func _ready() -> void:
